@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>{{ title }}</title>
+  <meta charset="utf-8" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+  <meta name="renderer" content="webkit" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+  <meta name="theme-color" content="#f60" />
+  <link rel="shortcut icon" href="">
+</head>
+
+<body>
+  <!--vue-ssr-outlet-->
+  <script>
+    // 手机适配
+    (function () {
+      var scale = 1.0;
+      var ratio = 1;
+      if (window.devicePixelRatio >= 2) {
+        scale *= 0.5;
+        ratio *= 2;
+      }
+      scale = 1 / window.devicePixelRatio;
+      window.fontSizeNum = 50 * (document.body && document.body.clientWidth || document.documentElement && document.documentElement
+        .clientWidth) / 375;
+      document.documentElement.style.fontSize = fontSizeNum + "px";
+    })();
+  </script>
+</body>
+
+</html>
